@@ -1,0 +1,25 @@
+li {
+    width: 600px;
+    height: 100px;
+    margin: 10px auto;
+    padding: 10px;
+    border-bottom: 2px solid darkblue;
+    border-left: 6px solid red;
+    border-radius: 10%;
+}
+
+li a:hover {
+    background-color: lightgray;
+}
+
+label{
+  margin-left: auto;
+}
+
+.circle {
+  background: red;
+  border-radius:50%;
+  height: 30px;
+  width: 30px;
+}
+

@@ -1,0 +1,10 @@
+<div class="event-list">
+  <ul>
+
+    <event *ngFor="let item of events"
+               [item]="item"
+               (done)="removeItem($event)">
+    </event>
+
+  </ul>
+</div>

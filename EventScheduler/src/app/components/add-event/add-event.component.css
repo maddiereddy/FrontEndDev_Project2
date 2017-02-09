@@ -1,0 +1,39 @@
+.new-event{
+    align-self: center;
+    text-align: center;
+    margin: 0 0 40px 0;
+}
+
+.button {
+    margin-bottom: 3px;
+    height: 40px;
+    width: 120px;
+    cursor: pointer;
+    border-radius: 15px;
+    box-shadow: 0 3px #999;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
