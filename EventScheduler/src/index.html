@@ -7,6 +7,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script src="https://use.fontawesome.com/756a4b0718.js"></script>
   <!-- Bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
@@ -15,6 +16,12 @@
 
 </head>
 <body>
-  <app-root><div class="loader"></div></app-root>
+ <app-root>
+    <div class="loading" style="margin: 35%">
+      <span>Loading...</span>
+      <br><br>
+      <i class="fa fa-cog fa-spin fa-4x fa-fw"></i>
+    </div>
+  </app-root>
 </body>
 </html>

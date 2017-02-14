@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-
-import { Location } from '@angular/common';
+import { ActivatedRoute, Router, Params } from '@angular/router';
 import { EventItem } from "../../model/event-item.model";
 import { EventStoreService } from '../../services/event-store.service';
+import 'rxjs/add/operator/switchMap';
 
 //user can view the selected event
 
@@ -15,21 +14,34 @@ import { EventStoreService } from '../../services/event-store.service';
 export class EditEventComponent implements OnInit {
 
   private item: EventItem;
-  private sub: any
+  private router: Router;
+  private route: ActivatedRoute;
+  private eventService: EventStoreService;
 
-  constructor(private route: ActivatedRoute, private router: Router, private location: Location, private store: EventStoreService) {
-
+  constructor(route: ActivatedRoute, router: Router, eventService: EventStoreService) {
+    this.router = router;
+    this.route = route;
+    this.eventService = eventService;
   }
 
-  ngOnInit(){
-    this.sub = this.route.params.subscribe(params => {
-      let id = +params['id'];
-      //this.item = this.store.getEvent(id);
-    });
+  //used params to get the id to be passed along to the service call to get a
+  //particular product to edit/save or delete
+
+  ngOnInit(): void {
+    this.route.params
+      .switchMap((params: Params) => this.eventService.getEvent(+params['id']))
+      .subscribe(item => this.item = item);
   }
 
+  updateEvent(): void{
+    this.eventService.update(this.item)
+      .then(() => this.back());
+  }
+
+  //go back to product list page
   back(): void {
-    this.location.back();
+    let link = ['/events'];
+    this.router.navigate(link);
   }
 
 }

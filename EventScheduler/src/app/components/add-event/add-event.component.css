@@ -6,11 +6,12 @@
 
 .button {
     margin-bottom: 3px;
+  border: solid 1px dodgerblue;
     height: 40px;
     width: 120px;
     cursor: pointer;
-    border-radius: 15px;
-    box-shadow: 0 3px #999;
+    border-radius: 10px;
+  box-shadow: 3px 3px 3px cornflowerblue;
 }
 
 .button span {

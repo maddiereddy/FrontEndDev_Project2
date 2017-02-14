@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { EventStoreService } from "../../services/event-store.service";
-
-//Create a new event
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'add-event',
@@ -10,15 +8,10 @@ import { EventStoreService } from "../../services/event-store.service";
 })
 export class AddEventComponent {
 
-  newItemText = '';
-  store: EventStoreService;
+  constructor(private router: Router){}
 
-  constructor(store: EventStoreService) {
-    this.store = store;
-  }
-
-  addItem() {
-    console.log(`I'm here`);
+  addItem(): void{
+    this.router.navigate(['/add']);
   }
 
 }

@@ -1,0 +1,55 @@
+<!--used ngModel for 2-way binding -->
+<div class="details">
+  <form>
+    <div class="form-group">
+      <label for="eventName"><span>Event</span><input type="text"
+        class="form-control" id="eventName" name="eventName" [(ngModel)]="event.name" required></label>
+    </div>
+    <div class="form-group">
+      <label for="eventDate"><span>Date</span><input type="date"
+       class="form-control" id="eventDate" name="eventDate" [(ngModel)]="event.date" required></label>
+    </div>
+    <div class="form-group">
+      <label for="eventStart"><span>Start Time</span><input type="time"
+       class="form-control" id="eventStart" name="eventStart" [(ngModel)]="event.startTime" required></label>
+    </div>
+    <div class="form-group">
+      <label for="eventEnd"><span>End Time</span><input type="time"
+        class="form-control" id="eventEnd" name="eventEnd" [(ngModel)]="event.endTime" required></label>
+    </div>
+    <div class="form-group">
+      <label for="eventWho"><span>Speaker</span><input type="text"
+        class="form-control" id="eventWho" name="eventWho" [(ngModel)]="event.speaker" required></label>
+    </div>
+    <div class="form-group">
+      <label for="eventAdd1"><span>Venue</span><input type="text"
+       class="form-control" id="eventAdd1" name="eventAdd1" [(ngModel)]="event.address1" required></label>
+    </div>
+    <div class="form-group">
+      <label for="eventAdd2"><span>Address</span><input type="text"
+        class="form-control" id="eventAdd2" name="eventAdd2" [(ngModel)]="event.address2" required></label>
+    </div>
+    <div class="form-group">
+      <label for="eventCity"><span>City</span><input type="text"
+        class="form-control" id="eventCity" name="eventCity" [(ngModel)]="event.city" required></label>
+    </div>
+    <div class="form-group">
+      <label for="eventState"><span>State</span><input type="text"
+       class="form-control" id="eventState" name="eventState" [(ngModel)]="event.state" required></label>
+    </div>
+    <div class="form-group">
+      <label for="eventZip"><span>Zip</span><input type="text"
+       class="form-control" id="eventZip" name="eventZip" [(ngModel)]="event.zip" required></label>
+    </div>
+    <div class="form-group">
+      <label for="eventDetails"><span>Details</span><textarea
+        class="form-control" id="eventDetails" name="eventDetails" [(ngModel)]="event.details" rows="3" required></textarea></label>
+    </div>
+  </form>
+
+  <br>
+  <div class="my-button-group">
+    <button type="button" class="btn btn-primary" (click)="back()">Back</button>
+    <button type="button" class="btn btn-primary" (click)="addEvent()">Add</button>
+  </div>
+</div>

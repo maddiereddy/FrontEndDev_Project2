@@ -1,19 +1,46 @@
 ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0 auto;
-}
-
-.nothing-done {
-    text-align: center;
-    width: 100%;
-    margin: 10px 0;
-    font-size: large;
+  list-style-type: none;
+  padding: 0;
+  margin: 0 auto;
 }
 
 .event-list {
-    border: solid 1px #e6e6e6;
-    border-radius: 4px;
-    width: 554px;
-    margin: 0 auto;
+  border: solid 1px dodgerblue;
+  border-radius: 4px;
+  width: 700px;
+  margin: 0 auto;
+  box-shadow: 5px 5px 5px cornflowerblue;
 }
+
+li {
+  width: 650px;
+  height: 200px;
+  padding-top: 10px;
+  margin: 10px;
+  padding-left: 55px;
+  border-bottom: 3px solid dodgerblue;
+  border-left: 6px solid red;
+  border-radius: 20%;
+}
+
+.what, .where, .when, .who, .address, .detail {
+  margin-left: 20px;
+  font-size: 16px;
+  font-family: "Times";
+  font-style: italic;
+}
+
+.fa {
+  color: dodgerblue;
+}
+
+.fa-circle {
+  color: red;
+}
+
+h2 {
+  text-align: center;
+  color: dodgerblue;
+}
+
+

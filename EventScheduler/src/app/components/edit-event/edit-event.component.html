@@ -1,7 +1,63 @@
-<div class="edit-event">
-  <p><b>Task:</b> {{item.text}}<br><b>Completed:</b> {{item.completed}}</p>
+
+
+<!--used ngModel for two way binding between component and view
+ Lessson learnt: need to have a name attribute when using ngModel-->
+
+<div *ngIf="item" class="details">
+  <form>
+    <div class="form-group">
+      <label for="eventName"><span>Event</span><input type="text"
+        class="form-control" id="eventName" name="eventName" [(ngModel)]="item.name"></label>
+    </div>
+    <div class="form-group">
+      <label for="eventDate"><span>Date</span><input type="text"
+        class="form-control" id="eventDate" name="eventDate" [(ngModel)]="item.date"></label>
+    </div>
+    <div class="form-group">
+      <label for="eventStart"><span>Start Time</span><input type="text"
+        class="form-control" id="eventStart" name="eventStart" [(ngModel)]="item.startTime"></label>
+    </div>
+    <div class="form-group">
+      <label for="eventEnd"><span>End Time</span><input type="text"
+        class="form-control" id="eventEnd" name="eventEnd" [(ngModel)]="item.endTime"></label>
+    </div>
+    <div class="form-group">
+      <label for="eventWho"><span>Speaker</span><input type="text"
+       class="form-control" id="eventWho" name="eventWho" [(ngModel)]="item.speaker"></label>
+    </div>
+    <div class="form-group">
+      <label for="eventAdd1"><span>Venue</span><input type="text"
+        class="form-control" id="eventAdd1" name="eventAdd1" [(ngModel)]="item.address1"></label>
+    </div>
+    <div class="form-group">
+      <label for="eventAdd2"><span>Address</span><input type="text"
+        class="form-control" id="eventAdd2" name="eventAdd2" [(ngModel)]="item.address2"></label>
+    </div>
+    <div class="form-group">
+      <label for="eventCity"><span>City</span><input type="text"
+       class="form-control" id="eventCity" name="eventCity" [(ngModel)]="item.city"></label>
+    </div>
+    <div class="form-group">
+      <label for="eventState"><span>State</span><input type="text"
+       class="form-control" id="eventState" name="eventState" [(ngModel)]="item.state"></label>
+    </div>
+    <div class="form-group">
+      <label for="eventZip"><span>Zip</span><input type="text"
+        class="form-control" id="eventZip" name="eventZip" [(ngModel)]="item.zip"></label>
+    </div>
+    <div class="form-group">
+      <label for="eventDetails"><span>Details</span><textarea
+        class="form-control" id="eventDetails" name="eventDetails" [(ngModel)]="item.details" rows="3"></textarea></label>
+    </div>
+  </form>
+
+  <!--buttons: Back, Update and Delete to go back, save changes and delete a product, respectively -->
   <br>
-  <button type="button" class="btn btn-primary" (click)="back()">Back</button>
+  <div class="my-button-group">
+    <button type="button" class="btn btn-primary" (click)="back()">Back</button>
+    <button type="button" class="btn btn-primary" (click)="updateEvent()">Update</button>
+  </div>
 </div>
+
 
 

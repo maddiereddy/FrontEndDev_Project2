@@ -5,7 +5,6 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './components/app-root/app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { EventComponent } from './components/event/event.component';
 import { AddEventComponent } from './components/add-event/add-event.component';
 import { EditEventComponent } from './components/edit-event/edit-event.component';
 import { EventListComponent } from './components/event-list/event-list.component';
@@ -18,19 +17,20 @@ import { PageNotFoundComponent } from './components/not-found.component';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './services/in-memory-data.service';
 
-import { EventStoreService } from './services/event-store.service'
+import { EventStoreService } from './services/event-store.service';
+import { NewEventComponent } from './components/new-event/new-event.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    EventComponent,
     AddEventComponent,
     EditEventComponent,
     EventListComponent,
     EventPageComponent,
     ArchiveListComponent,
     ArchivePageComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    NewEventComponent
   ],
   imports: [
     BrowserModule,

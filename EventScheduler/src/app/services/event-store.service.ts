@@ -45,6 +45,33 @@ export class EventStoreService {
         .catch(this.handleError);
   }
 
+  //retrieve cancelled events
+  getCancelledEvents(): Promise<EventItem[]> {
+    const url = `${this.eventUrl}?cancelled=true`;
+    return this.http.get(url)
+      .toPromise()
+      .then(response => response.json().data.sort((a,b) => a.id - b.id) as EventItem[]) //sorting the array of data objects
+      .catch(this.handleError);
+  }
+
+  //retrieve all events
+  getActiveEvents(): Promise<EventItem[]> {
+    const url = `${this.eventUrl}?cancelled=false`;
+    return this.http.get(url)
+      .toPromise()
+      .then(response => response.json().data.filter(data => Date.parse(data.date)>=Date.now()) as EventItem[]) //sorting the array of data objects
+      .catch(this.handleError);
+  }
+
+  //retrieve expired events
+  getExpiredEvents(): Promise<EventItem[]> {
+    const url = `${this.eventUrl}`;
+    return this.http.get(url)
+      .toPromise()
+      .then(response => response.json().data.filter(data => Date.parse(data.date)<Date.now()) as EventItem[]) //sorting the array of data objects
+      .catch(this.handleError);
+  }
+
   //update selected event by id
   update(event: EventItem): Promise<EventItem> {
     const url = `${this.eventUrl}/${event.id}`;

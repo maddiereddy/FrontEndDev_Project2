@@ -1,10 +1,46 @@
 <div class="event-list">
-  <ul>
+  <ul class="well">
 
-    <event *ngFor="let item of events"
-               [item]="item"
-               (done)="removeItem($event)">
-    </event>
+    <li *ngFor="let item of events">
 
+      <div class="row">
+        <div class="col-sm-1"><br><br><br>
+          <i class="fa fa-circle fa-2x" aria-hidden="true" data-toggle="tooltip" title="more details"></i>
+          <br><br>
+        </div>
+        <div class="col-sm-9">
+          <span><b style="font-size: 14px">What:</b><span class="what">{{item.name}}</span></span><br>
+          <span><b style="font-size: 14px">When:</b><span  class="when">{{item.date | date: 'mediumDate'}},
+            {{item.startTime | date: 'shortTime'}}-{{item.endTime | date: 'shortTime'}}</span></span><br>
+          <span><b style="font-size: 14px">Who:</b><span class="who">{{item.speaker}}</span></span><br>
+          <span><b style="font-size: 14px">Where:</b><span  class="where">{{item.address1}}</span></span><br>
+          <span><span class="address">{{item.address2}}, {{item.city}}, {{item.state}}, {{item.zip}}</span></span><br>
+          <span><b style="font-size: 14px">Details:</b><span class="detail">{{item.details}}</span></span>
+        </div>
+        <div class="col-sm-2">
+          <br>
+          <span class="down">
+            <i class="fa fa-thumbs-o-down fa-lg" aria-hidden="true" data-toggle="tooltip" title="vote down" (click)="downVote(item)"></i>
+          </span><span>{{item.downvotes}}</span>
+          <span class="up">
+            <i class="fa fa-thumbs-o-up fa-lg" aria-hidden="true" data-toggle="tooltip" title="vote up" (click)="upVote(item)"></i>
+          </span><span>{{item.upvotes}}</span><br><br>
+          <span class="details">
+            <a [routerLink]="['/events', item.id]">
+              <i class="fa fa-ellipsis-h fa-lg" aria-hidden="true" data-toggle="tooltip" title="edit event"></i>
+            </a>
+          </span><br><br>
+          <span class="cancel">
+            <div  *ngIf="item.cancelled">
+              <i class="fa fa-window-close-o fa-lg" aria-hidden="true" data-toggle="tooltip" title="un-cancel event" (click)="unCancelEvent(item)"></i>
+            </div>
+            <div  *ngIf="item.cancelled == false">
+              <i class="fa fa-check-square-o fa-lg" aria-hidden="true" data-toggle="tooltip" title="cancel event" (click)="cancelEvent(item)"></i>
+            </div>
+          </span>
+        </div>
+      </div>
+
+    </li>
   </ul>
 </div>
