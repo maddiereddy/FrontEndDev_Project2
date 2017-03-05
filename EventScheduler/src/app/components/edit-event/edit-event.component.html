@@ -1,10 +1,12 @@
 
 
 <!--used ngModel for two way binding between component and view
- Lessson learnt: need to have a name attribute when using ngModel-->
+ Lessson learnt: need to have a name attribute when using ngModel
+ Have not implemented any form validation. Need to...
+ Can edit event and save changes-->
 
 <div *ngIf="item" class="details">
-  <form>
+  <form >
     <div class="form-group">
       <label for="eventName"><span>Event</span><input type="text"
         class="form-control" id="eventName" name="eventName" [(ngModel)]="item.name"></label>

@@ -1,55 +1,92 @@
-<!--used ngModel for 2-way binding -->
-<div class="details">
-  <form>
+<!--used ngModel for 2-way binding
+basic form validation implemented
+if the field is not valid or not pristine a div shows up with a message
+also have a tooltip with `Please fill out this field` message which pops up when user tries to submit -->
+
+<form class="addForm" (ngSubmit)="addEvent()" >
+  <div class="details">
+
     <div class="form-group">
       <label for="eventName"><span>Event</span><input type="text"
-        class="form-control" id="eventName" name="eventName" [(ngModel)]="event.name" required></label>
+        class="form-control" id="eventName" name="eventName" [(ngModel)]="event.name" #eventName="ngModel" required></label>
+      <div [hidden]="eventName.valid || eventName.pristine" class="alert alert-danger">
+        Event name is required
+      </div>
     </div>
     <div class="form-group">
       <label for="eventDate"><span>Date</span><input type="date"
-       class="form-control" id="eventDate" name="eventDate" [(ngModel)]="event.date" required></label>
+       class="form-control" id="eventDate" name="eventDate" [(ngModel)]="event.date" #eventDate="ngModel" required></label>
+      <div [hidden]="eventDate.valid || eventDate.pristine" class="alert alert-danger">
+        Date of event is required
+      </div>
     </div>
     <div class="form-group">
       <label for="eventStart"><span>Start Time</span><input type="time"
-       class="form-control" id="eventStart" name="eventStart" [(ngModel)]="event.startTime" required></label>
+       class="form-control" id="eventStart" name="eventStart" [(ngModel)]="event.startTime" #eventStart="ngModel" required></label>
+      <div [hidden]="eventStart.valid || eventStart.pristine" class="alert alert-danger">
+        Start time of event is required
+      </div>
     </div>
     <div class="form-group">
       <label for="eventEnd"><span>End Time</span><input type="time"
-        class="form-control" id="eventEnd" name="eventEnd" [(ngModel)]="event.endTime" required></label>
+        class="form-control" id="eventEnd" name="eventEnd" [(ngModel)]="event.endTime" #eventEnd="ngModel" required></label>
+      <div [hidden]="eventEnd.valid || eventEnd.pristine" class="alert alert-danger">
+        End time of event is required
+      </div>
     </div>
     <div class="form-group">
       <label for="eventWho"><span>Speaker</span><input type="text"
-        class="form-control" id="eventWho" name="eventWho" [(ngModel)]="event.speaker" required></label>
+        class="form-control" id="eventWho" name="eventWho" [(ngModel)]="event.speaker" #eventWho="ngModel" required></label>
+      <div [hidden]="eventWho.valid || eventWho.pristine" class="alert alert-danger">
+        Speaker event is required
+      </div>
     </div>
     <div class="form-group">
       <label for="eventAdd1"><span>Venue</span><input type="text"
-       class="form-control" id="eventAdd1" name="eventAdd1" [(ngModel)]="event.address1" required></label>
+       class="form-control" id="eventAdd1" name="eventAdd1" [(ngModel)]="event.address1" #eventAdd1="ngModel" required></label>
+      <div [hidden]="eventAdd1.valid || eventAdd1.pristine" class="alert alert-danger">
+        Venue is required
+      </div>
     </div>
     <div class="form-group">
       <label for="eventAdd2"><span>Address</span><input type="text"
-        class="form-control" id="eventAdd2" name="eventAdd2" [(ngModel)]="event.address2" required></label>
+        class="form-control" id="eventAdd2" name="eventAdd2" [(ngModel)]="event.address2" #eventAdd2="ngModel" required></label>
+      <div [hidden]="eventAdd2.valid || eventAdd2.pristine" class="alert alert-danger">
+        Address is required
+      </div>
     </div>
     <div class="form-group">
       <label for="eventCity"><span>City</span><input type="text"
-        class="form-control" id="eventCity" name="eventCity" [(ngModel)]="event.city" required></label>
+        class="form-control" id="eventCity" name="eventCity" [(ngModel)]="event.city" #eventCity="ngModel" required></label>
+      <div [hidden]="eventCity.valid || eventCity.pristine" class="alert alert-danger">
+        City is required
+      </div>
     </div>
     <div class="form-group">
       <label for="eventState"><span>State</span><input type="text"
-       class="form-control" id="eventState" name="eventState" [(ngModel)]="event.state" required></label>
+       class="form-control" id="eventState" name="eventState" [(ngModel)]="event.state" #eventState="ngModel" required></label>
+      <div [hidden]="eventState.valid || eventState.pristine" class="alert alert-danger">
+        State is required
+      </div>
     </div>
     <div class="form-group">
       <label for="eventZip"><span>Zip</span><input type="text"
-       class="form-control" id="eventZip" name="eventZip" [(ngModel)]="event.zip" required></label>
+       class="form-control" id="eventZip" name="eventZip" [(ngModel)]="event.zip" #eventZip="ngModel" required></label>
+      <div [hidden]="eventZip.valid || eventZip.pristine" class="alert alert-danger">
+        Zip code is required
+      </div>
     </div>
     <div class="form-group">
       <label for="eventDetails"><span>Details</span><textarea
-        class="form-control" id="eventDetails" name="eventDetails" [(ngModel)]="event.details" rows="3" required></textarea></label>
+        class="form-control" id="eventDetails" name="eventDetails" [(ngModel)]="event.details" rows="3"></textarea></label>
     </div>
-  </form>
+
 
   <br>
   <div class="my-button-group">
     <button type="button" class="btn btn-primary" (click)="back()">Back</button>
-    <button type="button" class="btn btn-primary" (click)="addEvent()">Add</button>
+    <button type="submit" class="btn btn-primary">Submit</button>
   </div>
-</div>
+
+  </div>
+</form>

@@ -23,6 +23,7 @@ export class EventListComponent {
     this.getEvents();
   }
 
+  //get list of events
   getEvents(): void {
     this.eventService
       .getActiveEvents()
@@ -32,26 +33,31 @@ export class EventListComponent {
       });
   }
 
+  //increment upvotes counter
   upVote(item: EventItem): void{
     item.upvotes++;
     this.updateEvent(item);
   }
 
+  //increment downvotes counter
   downVote(item: EventItem): void{
     item.downvotes++;
     this.updateEvent(item);
   }
 
+  //update event to save the upvote, downvote, cancelled changes
   updateEvent(item: EventItem): void{
     this.eventService.update(item);
   }
 
+  //cancel flag set
   cancelEvent(item: EventItem): void{
     item.cancelled = true;
     this.updateEvent(item);
     this.getEvents();
   }
 
+  //cancel flag un-set
   unCancelEvent(item: EventItem): void{
     item.cancelled = false;
     this.updateEvent(item);
@@ -61,10 +67,6 @@ export class EventListComponent {
   //called by the Add New button click event to open a page which leads to creating a new product
   addNew(): void{
     this.router.navigate(['/add']);
-  }
-
-  removeItem(item: EventItem) {
-    this.eventService.delete(item);
   }
 
 }

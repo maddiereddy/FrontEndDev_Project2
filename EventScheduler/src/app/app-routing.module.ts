@@ -6,13 +6,16 @@ import { NewEventComponent }   from './components/new-event/new-event.component'
 import { ArchivePageComponent } from './components/archive-page/archive-page.component';
 import { PageNotFoundComponent } from './components/not-found.component';
 
+
+//creating routes for the pages
+
 const appRoutes: Routes = [
-    { path: 'events', component: EventPageComponent },
-    { path: 'events/:id', component: EditEventComponent },
-    { path: 'add', component: NewEventComponent },
-    { path: 'archive', component: ArchivePageComponent} ,
-    { path: '',   redirectTo: '/events', pathMatch: 'full' },
-    { path: '**', component: PageNotFoundComponent }
+    { path: 'events', component: EventPageComponent },        //main page
+    { path: 'events/:id', component: EditEventComponent },    //display selected event for edit/view
+    { path: 'add', component: NewEventComponent },            //add new event
+    { path: 'archive', component: ArchivePageComponent} ,     //display archived and cancelled events
+    { path: '',   redirectTo: '/events', pathMatch: 'full' }, //default route
+    { path: '**', component: PageNotFoundComponent }          //page not found page
 ];
 
 

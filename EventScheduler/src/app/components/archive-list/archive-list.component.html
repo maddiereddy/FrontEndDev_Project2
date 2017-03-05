@@ -1,8 +1,13 @@
+<!--
+Used built date pipe for displaying date and time
+Used font awesome icons
+-->
 <div class="event-list">
+  <!--List of Expired Events -->
   <h2>Past Events</h2>
   <ul class="well">
 
-    <li *ngFor="let item of events2">
+    <li *ngFor="let item of expiredEvents">
 
       <div class="row">
         <div class="col-sm-1"><br><br><br>
@@ -24,10 +29,11 @@
     </li>
   </ul>
   <br>
+  <!--List of Cancelled Events -->
   <div *ngIf="count>0"><h2>Cancelled Events</h2></div>
   <br>
   <ul class="well">
-    <li *ngFor="let item of events">
+    <li *ngFor="let item of cancelledEvents">
 
       <div class="row">
         <div class="col-sm-1"><br><br><br>

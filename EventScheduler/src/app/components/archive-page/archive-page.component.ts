@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
-//displays list of archived event items which may or may not have been completed
-//view just re-uses the event item component, displaying the array of archived items
+//displays page containing list of past events and a list of cancelled events (cancel flag set)
+//view just re-uses the event item component
 
 
 @Component({

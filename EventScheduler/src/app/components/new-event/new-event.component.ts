@@ -38,8 +38,8 @@ export class NewEventComponent implements OnInit {
   //create a new id by incrementing the highest id by 1
   //then call the create method in the service
   addEvent(): void{
-    this.event.startTime = this.event.date + ' ' + this.event.startTime
-    this.event.endTime = this.event.date + ' ' + this.event.endTime
+    this.event.startTime = this.event.date + ' ' + this.event.startTime  //need to add date to time when saving start time
+    this.event.endTime = this.event.date + ' ' + this.event.endTime  //need to add date to time when saving end time
     this.event.id = this.events[this.events.length - 1].id + 1
     this.eventService.create(this.event)
       .then(() => this.back());
